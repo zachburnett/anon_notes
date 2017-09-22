@@ -1,0 +1,26 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{title}}!
+  </h1>
+
+<form (submit)="onsubmit()" #formValidation="ngForm">
+  <p>note: 
+    <input 
+    type="text" 
+    name="notetext"
+    required
+    minlength="3"
+    [(ngModel)]="note.notetext"
+    #notetext ="ngModel"
+    ></p>
+
+  <input type="submit" value="create note" [disabled]="formValidation.invalid">
+</form>
+<div id='noteDisplay' *ngFor="let x of notes">
+ <p>  note:<strong> {{x.notetext}}</strong> 
+  created: <strong>{{x.created_at}}</strong></p>
+
+
+</div>
+</div>
